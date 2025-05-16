@@ -1,0 +1,36 @@
+{
+  "name": "playwright-automation",
+  "version": "1.0.0",
+  "description": "Playwright automation framework for Sauce Demo",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:safari": "playwright test --project=webkit",
+    "test:mobile": "playwright test --project=\"Mobile Chrome\" --project=\"Mobile Safari\"",
+    "test:parallel": "playwright test --workers=4",
+    "test:prod": "BASE_URL=https://www.saucedemo.com playwright test",
+    "test:ci": "playwright test --reporter=junit,html",
+    "test:docker": "playwright test --reporter=line",
+    "test:verbose": "playwright test --reporter=list,line,html,junit --workers=1",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen https://www.saucedemo.com",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "e2e"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.8.9",
+    "dotenv": "^16.3.1"
+  }
+}
