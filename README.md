@@ -1,116 +1,48 @@
-# Playwright Automation Framework for Sauce Demo
+# Ultra-Minimal Playwright Automation for CI
 
-A comprehensive end-to-end testing automation framework for [Sauce Demo](https://www.saucedemo.com/) using Playwright and TypeScript.
+An ultra-minimalist GitHub Actions CI automation solution for [Sauce Demo](https://www.saucedemo.com/) using Playwright and TypeScript.
 
 ## Features
 
-- **Page Object Model** architecture for better maintainability
-- **Data-driven testing** approach with centralized test data
-- **Multi-browser testing** across Chromium, Firefox, and WebKit
-- **Mobile testing** capability with device emulation
-- **Parallel test execution** for faster feedback
-- **HTML and JSON reporting** for better visualization
-- **Centralized configuration** via environment variables
-- **Cross-platform support** for Windows, macOS, and Linux
+- **Single-file architecture** with page object and tests combined
+- **Zero dependencies** beyond Playwright itself
+- **Extreme simplification** for GitHub Actions
+- **Maintenance-friendly** with all test logic in one place
+- **Fast execution** optimized for CI environment
 
 ## Project Structure
 
 ```
 playwright-automation/
-├── src/
-│   ├── fixtures/      # Custom test fixtures
-│   ├── pages/         # Page object models
-│   ├── utils/         # Utility functions and test data
-│   └── global-setup.ts # Global authentication setup
-├── tests/             # Test files
-├── playwright.config.ts # Playwright configuration
-├── package.json       # Project dependencies and scripts
-└── README.md         # Project documentation
+├── .github/workflows/  # GitHub Actions workflow
+├── tests/              # Single test file with everything
+├── playwright.config.ts # Minimal configuration
+└── package.json        # Stripped-down dependencies
 ```
 
-## Installation
+## GitHub Actions Configuration
 
-1. Clone the repository:
+This project runs exclusively in GitHub Actions:
 
-```bash
-git clone https://github.com/rbhorvath/playwright-automation.git
-cd playwright-automation
-```
-
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Install Playwright browsers:
-
-```bash
-npx playwright install
-```
-
-## Running Tests
-
-Run all tests:
-
-```bash
-npm test
-```
-
-Run tests with headed browsers:
-
-```bash
-npm run test:headed
-```
-
-Run tests in a specific browser:
-
-```bash
-npm run test:chrome
-npm run test:firefox
-npm run test:safari
-```
-
-Run tests on mobile devices:
-
-```bash
-npm run test:mobile
-```
-
-Run tests in debug mode:
-
-```bash
-npm run test:debug
-```
-
-View test report:
-
-```bash
-npm run report
-```
-
-## Configuration
-
-You can configure the tests through environment variables or by creating a `.env` file in the project root:
-
-```
-BASE_URL=https://www.saucedemo.com
-DEFAULT_USERNAME=standard_user
-DEFAULT_PASSWORD=secret_sauce
-HEADLESS=true
-WORKERS=4
-```
+- Runs on push to main branch
+- Runs on manual trigger
+- Runs daily at 9:00 UTC
 
 ## Implemented Scenarios
 
 1. **Login Tests**
    - Login with valid credentials
-   - Login with locked out user
    - Login with invalid credentials
+   - Login with locked out user
 
-2. **Product Catalog Tests**
-   - Sort products by price (low to high)
-   - Add products to cart
+2. **Checkout Flow**
+   - Complete end-to-end purchase flow
 
-3. **Checkout Process Tests**
-   - Complete checkout process 
+## Why This Approach?
+
+This ultra-minimal structure is designed specifically for CI environments where:
+
+- Maintenance needs to be simple
+- All test code should be in one place
+- Startup time should be minimal
+- Dependencies should be minimized 
